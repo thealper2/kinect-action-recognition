@@ -1,0 +1,11 @@
+# Core runtime (training, evaluation, offline inference). Kinect SDK is NOT required.
+# For CUDA 12.8 (RTX 50xx / Blackwell) install torch from the matching index, e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+numpy>=1.24
+torch>=2.1
+scikit-learn>=1.3
+pandas>=2.0
+matplotlib>=3.7
+PyYAML>=6.0
+# Optional: live visualization window (headless mode works without it)
+opencv-python>=4.8

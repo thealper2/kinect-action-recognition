@@ -1,0 +1,5 @@
+name: e2_lstm_xyz
+dataset: configs/dataset/kard_realworld.yaml
+split: configs/dataset/split_subject_fixed.yaml
+model: configs/model/lstm.yaml
+training: configs/training/default.yaml

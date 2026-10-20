@@ -1,0 +1,22 @@
+seed: 42
+device: auto                # auto | cpu | cuda | cuda:0
+deterministic: true
+epochs: 100
+batch_size: 32
+num_workers: 0              # tiny dataset; 0 keeps augmentation exactly reproducible
+optimizer:
+  name: adamw               # adamw | adam | sgd
+  lr: 0.001
+  weight_decay: 0.01
+scheduler:
+  name: cosine              # cosine | step | none
+  warmup_epochs: 5
+  min_lr: 1.0e-5
+grad_clip: 1.0              # null disables
+amp: false                  # mixed precision on CUDA
+amp_dtype: bfloat16         # bfloat16 | float16
+class_weighting: false      # KARD is perfectly balanced (30 per class)
+checkpoint_every: 10        # last.pt interval (best.pt is saved on every improvement)
+early_stopping:
+  patience: 30              # epochs without val macro-F1 improvement; 0 disables
+  min_delta: 0.0

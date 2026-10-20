@@ -1,0 +1,25 @@
+# KARD v2, real-world joint coordinates (primary representation).
+kind: realworld
+raw_dir: data/raw/kard
+interim_path: data/interim/kard_realworld.npz
+processed_dir: data/processed
+preprocess:
+  num_frames: 64            # T after linear temporal resampling of the whole sequence
+  center: first_frame       # none | first_frame | per_frame  (torso of the first frame)
+  center_joint: 8           # Torso
+  scale: torso_bones        # none | torso_bones
+  orientation: none         # none | yaw_hips | yaw_shoulders
+  velocity: false           # append per-joint velocities (C 3 -> 6)
+  velocity_mode: frame_diff # frame_diff | per_second
+  source_fps: 30.0          # assumed KARD capture rate (not documented, see docs)
+  append_mask: false
+  input_unit_scale: 0.001   # mm -> m
+augment:                    # training split only
+  enabled: true
+  temporal_crop_min: 0.85
+  yaw_deg: 15.0
+  pitch_deg: 5.0
+  scale_range: [0.9, 1.1]
+  translate_std: 0.05
+  jitter_std: 0.01
+  joint_dropout_p: 0.0

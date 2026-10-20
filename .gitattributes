@@ -1,0 +1,7 @@
+# Keep LF everywhere: the Makefile and scripts run in WSL/Linux, and Git for Windows
+# defaults to core.autocrlf=true (CRLF in a Makefile breaks its recipes).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.pt binary
+*.npz binary

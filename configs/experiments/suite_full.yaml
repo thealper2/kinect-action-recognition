@@ -1,0 +1,12 @@
+# Full controlled suite (24 runs): every experiment with 3 seeds.
+# e3 is also the T=64 point of the sequence-length comparison (e6_*).
+seeds: [42, 43, 44]
+experiments:
+  - configs/experiments/e1_mlp_xyz.yaml
+  - configs/experiments/e2_lstm_xyz.yaml
+  - configs/experiments/e3_stgcn_xyz.yaml
+  - configs/experiments/e4_stgcn_xyz_vel.yaml
+  - configs/experiments/e5_stgcn_no_norm.yaml
+  - configs/experiments/e6_stgcn_T32.yaml
+  - configs/experiments/e6_stgcn_T96.yaml
+  - configs/experiments/e7_stgcn_perframe_center.yaml

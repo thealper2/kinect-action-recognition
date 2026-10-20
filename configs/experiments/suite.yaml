@@ -1,0 +1,15 @@
+# Default (shorter) controlled suite: 14 runs.
+# - Main model comparison (MLP / BiLSTM / ST-GCN): 3 seeds each.
+# - Ablations: 1 seed (42), compared against e3_stgcn_xyz seed 42 (same seed, same split).
+# The full version (every experiment x 3 seeds, 24 runs) is suite_full.yaml (make experiments-full);
+# runs are shared between the two suites, so the full suite only adds the missing seeds.
+seeds: [42, 43, 44]
+experiments:
+  - configs/experiments/e1_mlp_xyz.yaml
+  - configs/experiments/e2_lstm_xyz.yaml
+  - configs/experiments/e3_stgcn_xyz.yaml
+  - {config: configs/experiments/e4_stgcn_xyz_vel.yaml, seeds: [42]}
+  - {config: configs/experiments/e5_stgcn_no_norm.yaml, seeds: [42]}
+  - {config: configs/experiments/e6_stgcn_T32.yaml, seeds: [42]}
+  - {config: configs/experiments/e6_stgcn_T96.yaml, seeds: [42]}
+  - {config: configs/experiments/e7_stgcn_perframe_center.yaml, seeds: [42]}

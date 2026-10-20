@@ -1,0 +1,5 @@
+name: e1_mlp_xyz
+dataset: configs/dataset/kard_realworld.yaml
+split: configs/dataset/split_subject_fixed.yaml
+model: configs/model/mlp.yaml
+training: configs/training/default.yaml

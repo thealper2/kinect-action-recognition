@@ -1,0 +1,5 @@
+name: e3_stgcn_xyz
+dataset: configs/dataset/kard_realworld.yaml
+split: configs/dataset/split_subject_fixed.yaml
+model: configs/model/stgcn.yaml
+training: configs/training/default.yaml

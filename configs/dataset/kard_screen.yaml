@@ -1,0 +1,27 @@
+# OPTIONAL debugging/comparison experiment only: screen coordinates (u px, v px, depth mm).
+# Never mix with real-world coordinates. Centring/scale make units relative to the body,
+# but u/v are pixels and z is mm, so the 3 axes are NOT isotropic here.
+kind: screen
+raw_dir: data/raw/kard
+interim_path: data/interim/kard_screen.npz
+processed_dir: data/processed
+preprocess:
+  num_frames: 64
+  center: first_frame
+  center_joint: 8
+  scale: torso_bones
+  orientation: none
+  velocity: false
+  velocity_mode: frame_diff
+  source_fps: 30.0
+  append_mask: false
+  input_unit_scale: 1.0
+augment:
+  enabled: true
+  temporal_crop_min: 0.85
+  yaw_deg: 0.0
+  pitch_deg: 0.0
+  scale_range: [0.9, 1.1]
+  translate_std: 0.05
+  jitter_std: 0.01
+  joint_dropout_p: 0.0

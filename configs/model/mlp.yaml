@@ -1,0 +1,7 @@
+name: mlp
+params:
+  hidden_dims: [256, 128]
+  aggregation: segments     # mean | meanmax | segments | flatten
+  num_segments: 4
+  head_hidden: 128
+  dropout: 0.3

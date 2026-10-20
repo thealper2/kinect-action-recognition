@@ -1,0 +1,27 @@
+# Real-time recognition settings (scripts/run_realtime.py --config ...)
+realtime:
+  window_seconds: null        # null -> [p05, median] KARD train sequence length / source_fps (~2.1 s, ~3.7 s)
+                              # or e.g. [3.0, 4.0, 5.5] for multi-scale averaging
+  source_fps: 30.0            # grid used to resample live windows (assumed KARD rate)
+  stride_frames: 5            # run the model every 5 tracked frames (~6 Hz)
+  min_window_coverage: 0.85   # matches the training temporal-crop minimum
+  max_gap_s: 0.35
+  lost_timeout_s: 0.5
+  smoothing: ema              # ema | majority | none
+  ema_alpha: 0.35
+  majority_k: 5
+  confidence_threshold: 0.6
+  margin_threshold: 0.15
+  topk: 3
+
+kinect_v1:                    # SDK v1 -> KARD joint mapping (docs/kinect_setup.md)
+  hand: hand                  # hand | wrist
+  foot: ankle                 # ankle | foot  (KARD Foot is ~ankle height)
+  torso: spine                # spine | spine_shoulder_mid
+  accept_inferred: true
+  flip_x: true                # SDK +X = sensor's left; KARD +X = image right
+  swap_left_right: false      # true for left-handed users (KARD used the right hand)
+
+bridge:
+  host: 0.0.0.0
+  port: 8765

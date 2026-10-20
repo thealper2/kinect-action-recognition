@@ -1,0 +1,14 @@
+# Short run used only to verify the pipeline end to end (not for reporting results).
+seed: 0
+device: auto
+deterministic: true
+epochs: 5
+batch_size: 32
+num_workers: 0
+optimizer: {name: adamw, lr: 0.001, weight_decay: 0.01}
+scheduler: {name: cosine, warmup_epochs: 1, min_lr: 1.0e-5}
+grad_clip: 1.0
+amp: false
+amp_dtype: bfloat16
+class_weighting: false
+early_stopping: {patience: 0, min_delta: 0.0}

@@ -1,0 +1,8 @@
+name: lstm
+params:
+  embed_dim: 96
+  hidden_size: 64           # 2-layer BiLSTM ~0.19 M params (kept small for 324 train sequences)
+  num_layers: 2
+  bidirectional: true
+  dropout: 0.3
+  pooling: mean             # mean | last
